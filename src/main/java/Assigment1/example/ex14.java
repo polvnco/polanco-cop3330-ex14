@@ -16,7 +16,7 @@ public class ex14
         Locale usa = new Locale("en", "US");
         NumberFormat dollarFormat = NumberFormat.getCurrencyInstance(usa);
 
-        double tax = 0.55;
+        float tax = (float) 1.055;
 
         System.out.print( "What is the order amount? " );
         Scanner orderAmount = new Scanner(System.in);
@@ -26,10 +26,15 @@ public class ex14
         Scanner state = new Scanner(System.in);
         String stateUSA = state.nextLine();
 
+        float totalAmounts;
+        float actualTax;
+
         if (stateUSA.equals("WI")){
+            totalAmounts = amount * tax;
+            actualTax = totalAmounts - amount;
             System.out.println("The subtotal is " + dollarFormat.format(amount) + ".");
-            System.out.println("The tax is " + dollarFormat.format(tax) + ".");
-            System.out.println("The total is " + dollarFormat.format(amount + tax) + ".");
+            System.out.println("The tax is " + dollarFormat.format(actualTax) + ".");
+            System.out.println("The total is " + dollarFormat.format(totalAmounts) + ".");
             return;
         }
         System.out.println("The total is " + dollarFormat.format(amount) + ".");
