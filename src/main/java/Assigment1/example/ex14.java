@@ -29,7 +29,7 @@ public class ex14
         float totalAmounts;
         float actualTax;
 
-        if (stateUSA.equals("WI")){
+        if (stateUSA.matches("WI(.*)")){
             totalAmounts = amount * tax;
             actualTax = totalAmounts - amount;
             System.out.println("The subtotal is " + dollarFormat.format(amount) + ".");
